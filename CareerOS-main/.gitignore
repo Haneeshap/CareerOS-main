@@ -28,6 +28,15 @@ yarn-error.log*
 .env
 .env*.local
 
+# logs
+*.log
+dev-server.log
+build.log
+
+# editor / OS
+.DS_Store
+Thumbs.db
+
 # vercel
 .vercel
 

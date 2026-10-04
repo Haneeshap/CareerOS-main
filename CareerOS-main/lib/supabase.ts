@@ -1,7 +1,13 @@
 import { createClient } from '@supabase/supabase-js';
-const supabaseUrl = 'https://mrkjknuhwdyfwmjhagur.supabase.co';
+
+// Values are injected at build time from environment variables so the same
+// codebase can target local, preview and production Supabase projects.
+// Configure them in .env.local (git-ignored) or in your host's dashboard.
+const supabaseUrl =
+  process.env.NEXT_PUBLIC_SUPABASE_URL ?? 'https://mrkjknuhwdyfwmjhagur.supabase.co';
 
 const supabaseAnonKey =
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ??
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1ya2prbnVod2R5ZndtamhhZ3VyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODAwMjc3MjcsImV4cCI6MjA5NTYwMzcyN30.4jrcLvb2-lMniNiT0TMt3FbI5fIlN0xz8dlQ8xv1MUA';
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);

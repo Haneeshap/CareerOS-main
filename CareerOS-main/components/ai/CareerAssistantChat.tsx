@@ -123,4 +123,3 @@ export default function CareerAssistantChat() {
     </div>
   );
 }
-</write_to_file>

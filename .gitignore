@@ -1,0 +1,25 @@
+# Root-level safety net. The real app ignores live in CareerOS-main/.gitignore,
+# but rules here guarantee secrets stay untracked no matter what gets added.
+
+# secrets & env
+.env
+.env.*
+!.env.example
+
+# dependencies / build output
+node_modules/
+.next/
+out/
+build/
+
+# logs
+*.log
+
+# agent scratch space
+.kilo/
+
+# editor / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
