@@ -64,22 +64,30 @@ Vercel is the best fit: first-class Next.js support, zero config, free Hobby tie
 
 Every subsequent `git push` to `main` redeploys automatically.
 
-### Option B — Vercel CLI
+### Option B — Vercel CLI (fastest path)
+
+The CLI is **already installed** on this machine (`vercel` v62.2.0).
 
 ```powershell
-npm i -g vercel
-cd C:\Users\hanee\Downloads\CareerOS-main
+# 1. Log in (opens a browser tab — this is the only manual step)
 vercel login
-vercel            # first run: preview
-vercel --prod     # production
-```
 
-Add the secrets once and they persist:
+# 2. Deploy from the app folder (NOT the repo root).
+#    Running from inside CareerOS-main\ makes the CLI auto-detect the
+#    correct root directory, so you never touch the Root Directory setting.
+cd C:\Users\hanee\Downloads\CareerOS-main\CareerOS-main
+vercel --prod --yes
 
-```powershell
+# 3. Add the secrets once (paste the URL, then the anon key at the prompt)
 vercel env add NEXT_PUBLIC_SUPABASE_URL production
 vercel env add NEXT_PUBLIC_SUPABASE_ANON_KEY production
+
+# 4. Redeploy so the env vars take effect (they only apply to NEW deployments)
+vercel --prod
 ```
+
+> Env-var changes are **not** applied to existing deployments — step 4 is required
+> or the app will build with the fallback values.
 
 ## 5. Deploy to Netlify (alternative — free)
 
